@@ -1,0 +1,351 @@
+h3 {
+  font-family: "Archivo Black";
+  font-size: 30px;
+  line-height: 30px;
+  margin: 10px 10px;
+}
+
+h5 {
+  font-family: "Archivo Black";
+  font-size: 15px;
+  line-height: 15px;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-family: "Archivo Black";
+}
+
+button.choose_character {
+  padding: 10px;
+  border: 0px solid transparent;
+  font-size: 10px;
+  text-align: center;
+  font-family: "Archivo Black";
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.game_tile {
+  width: 22px;
+  height: 22px;
+  border: 1px solid black;
+  position: absolute;
+  background-color: #85000161;
+  /* background-color: #eee; */
+}
+
+#msscience_piece {
+  position: absolute;
+  z-index: 1;
+  top: 426px;
+  left: 15px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#mrandybernard_piece {
+  position: absolute;
+  z-index: 1;
+  top: 564px;
+  left: 222px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#professoredmundezra_piece {
+  position: absolute;
+  z-index: 1;
+  top: 131px;
+  left: 15px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#missmartha_piece {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  left: 383px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#colonelcornell_piece {
+  position: absolute;
+  z-index: 1;
+  top: 175px;
+  left: 544px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#mrsginsberg_piece {
+  position: absolute;
+  z-index: 1;
+  top: 563px;
+  left: 337px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.pieces img {
+  -webkit-filter: brightness(250%);
+  filter: brightness(250%);
+}
+
+.characters {
+  line-height: 10px;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.characters img {
+  height: 150px;
+}
+
+#board {
+  width: 570px;
+  float: left;
+}
+
+#right {
+  width: calc(100% - 600px);
+  float: right;
+}
+
+button#difficulty2, button#difficulty1, button#difficulty3 {
+  font-family: "Archivo Black";
+  padding: 10px 40px;
+  border: 1px solid #212121;
+  color: #212121;
+  text-transform: uppercase;
+}
+
+/* game mode */
+
+#updates {
+  display: block;
+  width: 390px;
+  padding: 5px 20px;
+  /* border: 1px solid #790301; */
+  font-family: Helvetica Neue;
+  font-size: 11px;
+  line-height: 13px;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+#updates b {
+  text-transform: uppercase;
+  padding-right: 20px;
+  /* line-height: 20px; */
+}
+
+#actions {
+  display: block;
+  width: calc(100% - 350px);
+}
+
+#actions button:disabled,
+#actions button[disabled] {
+  opacity: 0.5;
+}
+
+button.room_tile {
+    /* background-color: #85000161; */
+    /* opacity: 0.6; */
+    filter: hue-rotate(180deg) brightness(0.7);
+}
+
+button.room_tile:disabled,
+button.room_tile[disabled] {
+  filter: hue-rotate(0deg) brightness(1);
+}
+
+#actions button {
+  padding: 5px;
+  margin: 10px 10px;
+  border: 1px solid transparent;
+  color: #000;
+  background-color: #f2ff2c;
+  font-family: "Archivo Black";
+  text-align: center;
+  font-size: 10px;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+
+.rooms button {
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+/* dialog box for guess + accuse */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    z-index: 1000;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#guess_modal button {
+  border: 1px solid transparent;
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #1313ce;
+  padding: 4px;
+}
+/* cards */
+
+#card1, #card2, #card3, #card4 {
+  height: 170px;
+  width: 107px;
+  overflow: hidden;
+  display: inline-block;
+  background-size: cover;
+  border: 1px solid #000;
+  text-align: center;
+  font-family: helvetica neue;
+}
+
+
+.about_me {
+    position: absolute;
+    top: 0px;
+    margin-top: 320px;
+    margin-left: 460px;
+}
+
+p#my_next_action, p#my_location {
+    padding: 0px;
+    font-family: Helvetica Neue;
+    font-size: 12px;
+    line-height:  12px;
+}
+
+img#my_character {
+    width:100px;
+    display: inline-block;
+}
+
+img#card_to_show {
+    width:100px;
+    display: inline-block;
+}
+
+.checklist_item {
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  color: #212121;
+  padding: 0px 8px;
+  font-size: 12px;
+}
+
+.checklist {
+    position: absolute;
+    width: 360px;
+    top: 0px;
+    height: 240px;
+    margin-top: 20px;
+    /* background-color: red; */
+    margin-left: 460px;
+}
+.strikeItem {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+button:disabled,
+button[disabled]{
+  opacity: 0.99;
+  background-color: transparent;
+}
+
+button#submit {
+    /* color: red; */
+    text-decoration:  none;
+    background-color: #1313ce;
+    color: #fff;
+    margin:  10px;
+    padding: 10px;
+    float: center;
+}
+
+div#help_modal {
+    font-family: Helvetica Neue;
+    font-size: 10px;
+    margin-top: -200px;
+    height: calc(100% + 200px);
+}
+
+button#help {
+    position: fixed;
+    background-color: #b7b7b7;
+    font-family: Helvetica Neue;
+    border: 0px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+    padding: 10px;
+    right: 20px;
+    top: 20px;
+}
+
+body {
+  /* background-image: url("../ fbackground.jpg"); */
+}
