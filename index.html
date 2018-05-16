@@ -1,1 +1,490 @@
-My Page
+<html>
+
+<head>
+  <title>Clue</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Cabin+Sketch|Poppins|Teko" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <script type="text/javascript" src="_build/main.js" defer></script>
+  <script src="static/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <p id="gui"> </p>
+
+  <div id="board">
+    <img src="static/board.png" />
+    <div class="pieces">
+      <img src="static/msscience_piece.png" width="18" id="msscience_piece" style="padding: 2px;" />
+      <img src="static/mrandybernard_piece.png" width="18" id="mrandybernard_piece" style="padding: 2px;" />
+      <img src="static/mrsginsberg_piece.png" width="18" id="mrsginsberg_piece" style="padding: 2px;" />
+      <img src="static/colonelcornell_piece.png" width="18" id="colonelcornell_piece" style="padding: 2px;" />
+      <img src="static/missmartha_piece.png" width="18" id="missmartha_piece" style="padding: 2px;" />
+      <img src="static/professoredmundezra_piece.png" width="18" id="professoredmundezra_piece" style="padding: 2px;" />
+    </div>
+    <!-- <div class="weapons">
+      <img src="static/dairybarjug_piece.png" width="24" id="dairybarjug_piece" />
+      <img src="static/fuertestelescope_piece.png" width="24" id="fuertestelescope_piece" />
+      <img src="static/revolver_piece.png" width="24" id="revolver_piece" />
+      <img src="static/architectureknife_piece.png" width="24" id="architectureknife_piece" />
+      <img src="static/risleycandlestick_piece.png" width="24" id="risleycandlestick_piece" />
+      <img src="static/rope_piece.png" width="24" id="rope_piece" />
+    </div> -->
+    <div class="rooms">
+      <button class="room_tile" style="top: 10px; left: 5px; position: absolute;" id="duffield_atrium"><img src="static/duffield_atrium.png" />
+        </button>
+
+      <button class="room_tile" style="top: 152px; left: 2px; position: absolute;" id="olin_library"><img src="static/olin_library.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 284px; left: 0px; position: absolute;" id="rpcc_billard_room"><img src="static/rpcc_billard_room.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 447px; left: -1px; position: absolute;" id="bailey_conservatory"><img src="static/bailey_conservatory.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 7px; left: 214px; position: absolute;" id="barton_hall"><img src="static/barton_hall.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 400px; left: 190px; position: absolute;" id="statler_ballroom"><img src="static/statler_ballroom.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 9px; left: 397px; position: absolute;" id="upson_lounge"><img src="static/upson_lounge.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 220px; left: 373px; position: absolute;" id="keeton_dining_room"><img src="static/keeton_dining_room.png"/>
+        </button>
+
+      <button class="room_tile" style="top: 424px; left: 420px; position: absolute;" id="phillips_kitchen"><img src="static/phillips_kitchen.png"/>
+        </button>
+    </div>
+    <div id="tiles">
+      <button class="game_tile tile1" style="left: 38px; top: 109px;" id="0"></button><button class="game_tile tile1" style="left: 38px; top: 131.75px;" id="1"></button><button class="game_tile tile1" style="left: 38px; top: 266.5px;" id="2"></button>
+      <button class="game_tile tile1" style="left: 38px; top: 404.25px;" id="3"></button>
+      <button class="game_tile tile1" style="left: 38px; top: 427px;" id="4"></button>
+
+      <button class="game_tile tile2" style="left: 61px; top: 109px;" id="5"></button><button class="game_tile tile2" style="left: 61px; top: 131.75px;" id="6"></button><button class="game_tile tile2" style="left: 61px; top: 266.5px;" id="7"></button>
+      <button class="game_tile tile2" style="left: 61px; top: 404.25px;" id="8"></button>
+      <button class="game_tile tile2" style="left: 61px; top: 427px;" id="9"></button>
+
+      <button class="game_tile tile3" style="left: 84px; top: 109px;" id="10"></button><button class="game_tile tile3" style="left: 84px; top: 131.75px;" id="11"></button><button class="game_tile tile3" style="left: 84px; top: 266.5px;" id="12"></button>
+      <button class="game_tile tile3" style="left: 84px; top: 404.25px;" id="13"></button>
+      <button class="game_tile tile3" style="left: 84px; top: 427px;" id="14"></button>
+
+      <button class="game_tile tile4" style="left: 107px; top: 109px;" id="15"></button><button class="game_tile tile4" style="left: 107px; top: 131.75px;" id="16"></button><button class="game_tile tile4" style="left: 107px; top: 266.5px;" id="17"></button>
+      <button class="game_tile tile4" style="left: 107px; top: 404.25px;" id="18"></button>
+      <button class="game_tile tile4" style="left: 107px; top: 427px;" id="19"></button>
+
+      <button class="game_tile tile5" style="left: 130px; top: 109px;" id="20"></button><button class="game_tile tile5" style="left: 130px; top: 131.75px;" id="21"></button><button class="game_tile tile5" style="left: 130px; top: 266.5px;" id="22"></button>
+      <button class="game_tile tile5" style="left: 130px; top: 404.25px;" id="23"></button>
+      <button class="game_tile tile5" style="left: 130px; top: 427px;" id="24"></button><button class="game_tile tile5" style="left: 130px; top: 449.75px;" id="25"></button>
+
+      <button class="game_tile tile6" style="left: 153px; top: 109px;" id="66"></button><button class="game_tile tile6" style="left: 153px; top: 131.75px;" id="67"></button><button class="game_tile tile6" style="left: 153px; top: 154.5px;" id="68"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 246.25px;" id="69"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 269px;" id="70"></button><button class="game_tile tile6" style="left: 153px; top: 291.75px;" id="71"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 314.5px;" id="72"></button><button class="game_tile tile6" style="left: 153px; top: 337.25px;" id="73"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 360px;" id="74"></button><button class="game_tile tile6" style="left: 153px; top: 382.75px;" id="75"></button><button class="game_tile tile6" style="left: 153px; top: 405.5px;" id="76"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 428.25px;" id="77"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 451px;" id="78"></button><button class="game_tile tile6" style="left: 153px; top: 473.75px;" id="79"></button>
+      <button class="game_tile tile6" style="left: 153px; top: 496.5px;" id="80"></button><button class="game_tile tile6" style="left: 153px; top: 519.25px;" id="81"></button>
+
+
+      <button class="game_tile tile7" style="left: 176px; top: 17px;" id="82"></button><button class="game_tile tile7" style="left: 176px; top: 39.75px;" id="83"></button><button class="game_tile tile7" style="left: 176px; top: 62.5px;" id="84"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 85.25px;" id="85"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 108px;" id="86"></button><button class="game_tile tile7" style="left: 176px; top: 130.75px;" id="87"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 153.5px;" id="88"></button><button class="game_tile tile7" style="left: 176px; top: 176.25px;" id="89"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 199px;" id="90"></button><button class="game_tile tile7" style="left: 176px; top: 221.75px;" id="91"></button><button class="game_tile tile7" style="left: 176px; top: 244.5px;" id="92"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 267.25px;" id="93"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 290px;" id="94"></button><button class="game_tile tile7" style="left: 176px; top: 312.75px;" id="95"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 335.5px;" id="96"></button><button class="game_tile tile7" style="left: 176px; top: 358.25px;" id="97"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 381px;" id="98"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 403.75px;" id="99"></button><button class="game_tile tile7" style="left: 176px; top: 426.5px;" id="100"></button><button class="game_tile tile7" style="left: 176px; top: 449.25px;" id="101"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 472px;" id="102"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 494.75px;" id="103"></button><button class="game_tile tile7" style="left: 176px; top: 517.5px;" id="104"></button>
+      <button class="game_tile tile7" style="left: 176px; top: 540.25px;" id="105"></button>
+
+      <button class="game_tile tile8" style="left: 199px; top: 40px;" id="106"></button><button class="game_tile tile8" style="left: 199px; top: 62.75px;" id="107"></button><button class="game_tile tile8" style="left: 199px; top: 85.5px;" id="108"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 108.25px;" id="109"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 131px;" id="110"></button><button class="game_tile tile8" style="left: 199px; top: 153.75px;" id="111"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 176.5px;" id="112"></button><button class="game_tile tile8" style="left: 199px; top: 199.25px;" id="113"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 222px;" id="114"></button><button class="game_tile tile8" style="left: 199px; top: 244.75px;" id="115"></button><button class="game_tile tile8" style="left: 199px; top: 267.5px;" id="116"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 290.25px;" id="117"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 313px;" id="118"></button><button class="game_tile tile8" style="left: 199px; top: 335.75px;" id="119"></button>
+      <button class="game_tile tile8" style="left: 199px; top: 358.5px;" id="120"></button><button class="game_tile tile8" style="left: 199px; top: 381.25px;" id="121"></button><button class="game_tile tile8" style="left: 199px; top: 541px;" id="122"></button>
+
+      <button class="game_tile tile9" style="left: 222px; top: 176px;" id="26"></button><button class="game_tile tile9" style="left: 222px; top: 357.75px;" id="27"></button><button class="game_tile tile9" style="left: 222px; top: 380.5px;" id="28"></button>
+      <button class="game_tile tile9" style="left: 222px; top: 541.25px;" id="29"></button>
+
+      <button class="game_tile tile10" style="left: 245px; top: 176px;" id="30"></button><button class="game_tile tile10" style="left: 245px; top: 357.75px;" id="31"></button><button class="game_tile tile10" style="left: 245px; top: 380.5px;" id="32"></button>
+
+      <button class="game_tile tile11" style="left: 268px; top: 176px;" id="33"></button><button class="game_tile tile11" style="left: 268px; top: 357.75px;" id="34"></button><button class="game_tile tile11" style="left: 268px; top: 380.5px;" id="35"></button>
+
+      <button class="game_tile tile12" style="left: 291px; top: 176px;" id="36"></button><button class="game_tile tile12" style="left: 291px; top: 357.75px;" id="37"></button><button class="game_tile tile12" style="left: 291px; top: 380.5px;" id="38"></button>
+
+      <button class="game_tile tile13" style="left: 314px; top: 176px;" id="39"></button><button class="game_tile tile13" style="left: 314px; top: 357.75px;" id="40"></button><button class="game_tile tile13" style="left: 314px; top: 380.5px;" id="41"></button>
+
+      <button class="game_tile tile14" style="left: 337px; top: 176px;" id="140"></button><button class="game_tile tile14" style="left: 337px; top: 198.75px;" id="141"></button><button class="game_tile tile14" style="left: 337px; top: 221.5px;" id="142"></button>
+      <button class="game_tile tile14" style="left: 337px; top: 244.25px;" id="143"></button>
+      <button class="game_tile tile14" style="left: 337px; top: 267px;" id="144"></button><button class="game_tile tile14" style="left: 337px; top: 289.75px;" id="145"></button>
+      <button class="game_tile tile14" style="left: 337px; top: 312.5px;" id="146"></button><button class="game_tile tile14" style="left: 337px; top: 335.25px;" id="147"></button><button class="game_tile tile14" style="left: 337px; top: 358px;" id="148"></button>
+      <button class="game_tile tile14" style="left: 337px; top: 380.75px;" id="149"></button>
+      <button class="game_tile tile14" style="left: 337px; top: 540.5px;" id="150"></button>
+
+      <button class="game_tile tile15" style="left: 360px; top: 40px;" id="123"></button><button class="game_tile tile15" style="left: 360px; top: 62.75px;" id="124"></button><button class="game_tile tile15" style="left: 360px; top: 85.5px;" id="125"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 108.25px;" id="126"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 131px;" id="127"></button><button class="game_tile tile15" style="left: 360px; top: 153.75px;" id="128"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 176.5px;" id="129"></button><button class="game_tile tile15" style="left: 360px; top: 199.25px;" id="130"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 222px;" id="131"></button><button class="game_tile tile15" style="left: 360px; top: 244.75px;" id="132"></button><button class="game_tile tile15" style="left: 360px; top: 267.5px;" id="133"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 290.25px;" id="134"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 313px;" id="135"></button><button class="game_tile tile15" style="left: 360px; top: 335.75px;" id="136"></button>
+      <button class="game_tile tile15" style="left: 360px; top: 358.5px;" id="137"></button><button class="game_tile tile15" style="left: 360px; top: 381.25px;" id="138"></button><button class="game_tile tile15" style="left: 360px; top: 541px;" id="139"></button>
+
+      <button class="game_tile tile16" style="left: 383px; top: 40px;" id="151"></button><button class="game_tile tile16" style="left: 383px; top: 62.75px;" id="152"></button><button class="game_tile tile16" style="left: 383px; top: 85.5px;" id="153"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 108.25px;" id="154"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 131px;" id="155"></button><button class="game_tile tile16" style="left: 383px; top: 153.75px;" id="156"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 176.5px;" id="157"></button><button class="game_tile tile16" style="left: 383px; top: 199.25px;" id="158"></button><button class="game_tile tile16" style="left: 383px; top: 358px;" id="159"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 380.75px;" id="160"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 403.5px;" id="161"></button><button class="game_tile tile16" style="left: 383px; top: 426.25px;" id="162"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 449px;" id="163"></button><button class="game_tile tile16" style="left: 383px; top: 471.75px;" id="164"></button><button class="game_tile tile16" style="left: 383px; top: 494.5px;" id="165"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 517.25px;" id="166"></button>
+      <button class="game_tile tile16" style="left: 383px; top: 540px;" id="167"></button>
+
+      <button class="game_tile tile17" style="left: 406px; top: 153px;" id="168"></button><button class="game_tile tile17" style="left: 406px; top: 175.75px;" id="169"></button><button class="game_tile tile17" style="left: 406px; top: 198.5px;" id="170"></button>
+      <button class="game_tile tile17" style="left: 406px; top: 359.25px;" id="171"></button>
+      <button class="game_tile tile17" style="left: 406px; top: 382px;" id="172"></button><button class="game_tile tile17" style="left: 406px; top: 404.75px;" id="173"></button>
+      <button class="game_tile tile17" style="left: 406px; top: 427.5px;" id="174"></button><button class="game_tile tile17" style="left: 406px; top: 450.25px;" id="175"></button><button class="game_tile tile17" style="left: 406px; top: 473px;" id="176"></button>
+      <button class="game_tile tile17" style="left: 406px; top: 495.75px;" id="177"></button>
+      <button class="game_tile tile17" style="left: 406px; top: 518.5px;" id="178"></button>
+
+      <button class="game_tile tile18" style="left: 429px; top: 153px;" id="179"></button><button class="game_tile tile18" style="left: 429px; top: 175.75px;" id="180"></button><button class="game_tile tile18" style="left: 429px; top: 198.5px;" id="181"></button>
+      <button class="game_tile tile18" style="left: 429px; top: 359.25px;" id="182"></button>
+      <button class="game_tile tile18" style="left: 429px; top: 382px;" id="183"></button><button class="game_tile tile18" style="left: 429px; top: 404.75px;" id="184"></button>
+      <!--
+      <button class="game_tile tile19" style="left: 429px; top: 153px;" id="42"></button>
+      <button class="game_tile tile19" style="left: 429px; top: 175.75px;" id="43"></button><button class="game_tile tile19" style="left: 429px; top: 198.5px;" id="44"></button> -->
+      <!-- <button class="game_tile tile19" style="left: 429px; top: 382.25px;" id="45"></button> -->
+
+      <button class="game_tile tile20" style="left: 452px; top: 153px;" id="46"></button><button class="game_tile tile20" style="left: 452px; top: 175.75px;" id="47"></button><button class="game_tile tile20" style="left: 452px; top: 198.5px;" id="48"></button>
+      <button class="game_tile tile20" style="left: 452px; top: 382.25px;" id="49"></button>
+      <button class="game_tile tile20" style="left: 452px; top: 405px;" id="50"></button>
+
+      <button class="game_tile tile21" style="left: 475px; top: 153px;" id="51"></button><button class="game_tile tile21" style="left: 475px; top: 175.75px;" id="52"></button><button class="game_tile tile21" style="left: 475px; top: 198.5px;" id="53"></button>
+      <button class="game_tile tile21" style="left: 475px; top: 382.25px;" id="54"></button>
+      <button class="game_tile tile21" style="left: 475px; top: 405px;" id="55"></button>
+
+      <button class="game_tile tile22" style="left: 498px; top: 153px;" id="56"></button><button class="game_tile tile22" style="left: 498px; top: 175.75px;" id="57"></button><button class="game_tile tile22" style="left: 498px; top: 198.5px;" id="58"></button>
+      <button class="game_tile tile22" style="left: 498px; top: 382.25px;" id="59"></button>
+      <button class="game_tile tile22" style="left: 498px; top: 405px;" id="60"></button>
+
+      <button class="game_tile tile23" style="left: 521px; top: 153px;" id="61"></button><button class="game_tile tile23" style="left: 521px; top: 175.75px;" id="62"></button><button class="game_tile tile23" style="left: 521px; top: 198.5px;" id="63"></button>
+      <button class="game_tile tile23" style="left: 521px; top: 382.25px;" id="64"></button>
+      <button class="game_tile tile23" style="left: 521px; top: 405px;" id="65"></button>
+
+      <button class="game_tile tile24" style="left: 544px; top: 405px;" id="185"></button>
+    </div>
+  </div>
+  <div id="right">
+    <div id="init">
+      <div class="characters">
+        <h3>Pick a Character</h3>
+        <table>
+          <tr>
+            <td><button class="choose_character" id="colonelcornell"><img src="static/colonelcornell_card.png" /><br /><br />Colonel Cornell</button></td>
+            <td><button class="choose_character" id="missmartha"><img src="static/missmartha_card.png" /><br /><br />Miss Martha</button></td>
+            <td><button class="choose_character" id="mrandybernard"><img src="static/mrandybernard_card.png" /><br /><br />Mr. Andy Bernard</button></td>
+            <td><button class="choose_character" id="mrsginsberg"><img src="static/mrsginsberg_card.png" /><br /><br />Mrs. Ginsberg</button></td>
+            <td><button class="choose_character" id="msscience"><img src="static/msscience_card.png" /><br /><br />Ms. Science</button></td>
+            <td><button class="choose_character" id="professoredmundezra"><img src="static/professoredmundezra_card.png" /><br /><br />Professor Edmund Ezra</button></td>
+          </tr>
+        </table>
+        <h3>Select a Level of Difficulty</h3>
+        <table>
+          <tr>
+            <td><button id="difficulty1">Easy</button></td>
+            <td><button id="difficulty2">Medium</button></td>
+            <td><button id="difficulty3">Difficult</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="game_mode">
+      <h3>Updates</h3>
+      <div id="updates">
+      </div>
+      <div id="actions">
+        <h3>Choose an Action</h3>
+        <table>
+          <tr>
+            <td>
+              <button id="roll">Roll</button>
+            </td>
+            <td>
+              <button id="passage">Take a Passage</button>
+            </td>
+            <td>
+              <button id="guess">Guess</button>
+            </td>
+            <td>
+              <button id="accuse">Accuse</button>
+            </td>
+            <td>
+              <button id="skip">Skip</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="my_cards">
+        <h3>My Cards</h3>
+        <table>
+          <tr>
+            <td>
+              <a id="card1_selected">
+                <div id="card1"></div>
+              </a>
+            </td>
+            <td>
+              <a id="card2_selected">
+                <div id="card2"></div>
+              </a>
+            </td>
+            <td>
+              <a id="card3_selected">
+                <div id="card3"></div>
+              </a>
+            </td>
+            <td>
+              <a id="none_selected">
+                <div id="card4"><br /><br /><br /><br />None</div>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="about_me">
+        <table>
+          <tr>
+            <td>
+              <h5 style="position: relative; top: 0px;">My Character</h5>
+              <img src="static/default.png" id="my_character" />
+            </td>
+            <td>
+              <h5 style="position: relative; top: 0px;">Card Shown to Me</h5>
+              <img src="static/default.png" id="card_to_show" />
+            </td>
+          </tr>
+        </table>
+
+        <h5>My Location</h5>
+        <p id="my_location">At home</p>
+      </div>
+      <div class="checklist">
+        <h2>My Checklist</h2>
+        <h5>Suspects</h5>
+        <a class="checklist_item">Ms. Science</a>
+        <a class="checklist_item">Mr. Andy Bernard</a>
+        <a class="checklist_item">Mrs. Ginsberg</a>
+        <a class="checklist_item">Colonel Cornell</a>
+        <a class="checklist_item">Miss Martha</a>
+        <a class="checklist_item">Professor Edmund Ezra</a>
+        <h5>Rooms</h5>
+        <a class="checklist_item">Duffield Atrium</a>
+        <a class="checklist_item">Olin Library</a>
+        <a class="checklist_item">RPCC Billard Room</a>
+        <a class="checklist_item">Bailey Conservatory</a>
+        <a class="checklist_item">Barton Hall</a>
+        <a class="checklist_item">Statler Ballroom</a>
+        <a class="checklist_item">Upson Lounge</a>
+        <a class="checklist_item">Keeton Dining Room</a>
+        <a class="checklist_item">Phillips Kitchen</a>
+        <h5>Weapons</h5>
+        <a class="checklist_item">Dairy Bar Jug</a>
+        <a class="checklist_item">Fuertes Telescope</a>
+        <a class="checklist_item">Revolver</a>
+        <a class="checklist_item">Architecture Knife</a>
+        <a class="checklist_item">Risley Candlestick</a>
+        <a class="checklist_item">Rope</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="guess_modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Guess/Accuse</h2>
+      <h5>SUSPECT</h5>
+      <button id="msscience_guess">Ms. Science</button>
+      <button id="mrandybernard_guess">Mr. Andy Bernard</button>
+      <button id="mrsginsberg_guess">Mrs. Ginsberg</button>
+      <button id="colonelcornell_guess">Colonel Cornell</button>
+      <button id="missmartha_guess">Miss Martha</button>
+      <button id="professoredmundezra_guess">Professor Edmund Ezra</button>
+      <h5>ROOM</h5>
+      <button id="duffieldatrium_guess">Duffield Atrium</button>
+      <button id="olinlibrary_guess">Olin Library</button>
+      <button id="rpccbillardroomroom_guess">RPCC Billard Room</button>
+      <button id="baileyconservatory_guess">Bailey Conservatory</button>
+      <button id="bartonhall_guess">Barton Hall</button>
+      <button id="statlerballroom_guess">Statler Ballroom</button>
+      <button id="upsonlounge_guess">Upson Lounge</button>
+      <button id="keetondiningroom_guess">Keeton Dining Room</button>
+      <button id="phillipskitchen_guess">Phillips Kitchen</button>
+      <h5>WEAPON</h5>
+      <button id="dairybarjug_guess">Dairy Bar Jug</button>
+      <button id="fuertestelescope_guess">Fuertes Telescope</button>
+      <button id="revolver_guess">Revolver</button>
+      <button id="architectureknife_guess">Architecture Knife</button>
+      <button id="risleycandlestick_guess">Risley Candlestick</button>
+      <button id="rope_guess">Rope</button>
+      <br />
+      <button id="submit">SUBMIT</button>
+    </div>
+
+  </div>
+
+  <div id="win_modal" class="modal">
+    <div class="modal-content">
+      <h2 id="who_won"></h2>
+    </div>
+  </div>
+
+  <div id="lose_modal" class="modal">
+    <div class="modal-content">
+      <h2>YOU LOST</h2>
+    </div>
+  </div>
+  <button id="help">
+    HELP ?
+  </button>
+
+  <div id="help_modal" class="modal">
+    <div class="modal-content">
+      <span class="close_help">&times;</span>
+      <h3>Rules for Clue</h3>
+      <h5>Object</h5>
+      The beloved Mr. Touchdown was apparently the victim of foul play and was found in one of the rooms of his Cornell-themed home. The object of the game is to discover the answer to these three questions: 1st. Who? Which one of the several suspects did it? 2nd. Where? 3rd. With What Weapon?
+      The answer lies in the little envelope containing 3 cards. One card tells who did it- another card reveals the room in which it all happened, and the third card discloses the weapon used.
+
+      You, along with 5 other AI's, will try and bring Mr. Touchdown justice. By the process of deduction and good plain common sense, the first player to identify the 3 solution cards hidden in the little envelope, wins the game. During their turn, player's roll, guess, and finally,
+      if they are in a room, they have an option to make a "Suggestion" about which person and weapon were used in that specific room in order to gain information. One by one, players must try and refute this information or skip sharing information if it does not contradict the user's guess.
+
+      Finally, a player can make a final "Accusation" and name a suspect, weapon, and character. If they are right, then they win the game! Else they are declared a loser and the game continues without them.
+      <h5>Equipment</h5>
+      The game Board showing nine rooms of Mr. Touchdown's
+      house. Six colored tokens representing the suspects in the house. The colors of the pieces are closely associated with the names of the suspects: Colonel Cornell (yellow) Miss Martha (red) Professor Edmund Ezra (purple) Mr. Andy Bernard (green) Mrs. Ginsberg (white)
+      Ms. Science (blue). Six miniature weapons and one die. The pack of 21 illustrated cards includes a card for each of the 6 suspects, one for each of the 6 weapons, and one for each of the 9 rooms. There is also a pad of Detective Notes to aid the
+      players in their investigations.
+      <h5>Preparation</h5>
+      All suspect tokens are placed on the starting squares marked with their names. Cards are shuffled and dealt to the players such that a winning combo is not revealed to anyone.
+      The player having the red token, Miss Scarlet, rolls the die and moves first. After Miss Scarlet has moved, the players follow an assigned order.
+      <h5>Game Play</h5>
+      Moving your token: On each turn, try to reach a different room of the house. To start your turn, move your token
+      either by rolling the die or, if you're in a corner room, using a Secret Passage. There are two ways of entering a room: <br />
+      (1) Throwing the die and moving your token along the squares entering through a doorway. <br />
+<<<<<<< HEAD
+      (2) Via the Secret Passages. One leaps corner to corner without using the die.
+      (3) Keep in mind that you and other users can block the room if you're inside! If you enter through a doorway, no one else can use
+=======
+      (2) Via the Secret Passages. One leaps corner to corner without using the die. <br />
+      Keep in mind that you and other users can block the room if you're inside! If you enter through a doorway, no one else can use
+>>>>>>> 09fccc77df70530a9163e3f1b115ce436fb67b0e
+      the doorway until you leave. If this is the case, other players can only access the room using passages or other doorways if avaliable.
+      Finally, either a "Suggestion" or "Accusation" can be made after this move.
+      <h5>Making a Suggestion</h5>
+      As soon as you enter a room, make a Suggestion. By making Suggestions, you try to determine - by process of elimination -- which three cards are in the confidential Case File envelope. To make a Suggestion, move a Suspect and a Weapon into the Room
+      that you just entered. Then suggest that the crime was committed in that Room, by that Suspect, with that Weapon. Example: Let's say that you're Miss Scarlet and you enter the Lounge. First move another Suspect -- Mr. Green, for instance -- into
+      the Lounge. Then move a Weapon into the Lounge (the Wrench, perhaps) and say "I suggest that the crime was committed in the Upson Lounge, by Ms. Science with the Revolver." Remember two things: 1. You must be in the Room that you mention in your Suggestion.
+      2. Be sure to consider all tokens -- including spare Suspects and yourself! -- as falling under equal suspicion.
+      <h5>Proving the Suggestion True or False</h5>
+      As soon as you make a Suggestion, your opponents, in turn, try to prove it false. The players looks at their cards to see if one of the three cards you just named is there. If the player has one or more of these cards, he or she must show it to you and no one else. If the player
+      has more than one of the cards named, he or she selects just one to show you. If that opponent does not have any of the three cards, then the next player at his left examines his cards and must show one of the three if he has it. Obviously, if any
+      player has one or more of the 3 cards named in the Suggestion, it is proof that those particular cards are not in the envelope. The opportunity to prove the Suggestion false passes to the left until some player has shown ONE card to the suggesting
+      player, whose turn then ends, and play passes to the next player. If no one is able to prove your Suggestion false, you end your turn.
+      <h5>Special Notes about Suggestions</h5>
+      You may make only one Suggestion after entering
+      a particular Room. To make your next Suggestion, you must either enter a different Room or sometime after your next turn, re-enter the Room that you most recently left. You may not forfeit a turn to remain in a particular Room. By making Suggestions and having them proved True or
+      False players will eventually be able to identify the three cards in the envelope.
+      <h5>Making an Accusation</h5>
+      When you think you've figured out which three cards are in the envelope, you may, on your turn, make an Accusation.
+      <h5>Winning the game</h5>
+      Depending on your accusation, you will either win or lost the game!
+    </div>
+  </div>
+</body>
+
+<script>
+  function hideInit() {
+    $("#init").hide("slow");
+  }
+  $('#updates').animate({
+    scrollTop: $('#textdiv').prop("scrollHeight")
+  }, 500);
+
+  // Get the modal
+  var modal = document.getElementById('guess_modal');
+  var help = document.getElementById('help_modal');
+
+  var win_modal = document.getElementById('win_modal');
+  var lose_modal = document.getElementById('lose_modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("guess");
+
+  var btn2 = document.getElementById("accuse");
+
+  var get_help = document.getElementById("help");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  var span2 = document.getElementsByClassName("close_help")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  btn2.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  get_help.onclick = function() {
+    help.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  span2.onclick = function() {
+    help.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+    if (event.target == help) {
+      help.style.display = "none";
+    }
+  }
+
+  $(".checklist_item").click(function() {
+    $(this).toggleClass("strikeItem");
+  });
+
+  $("#updates").animate({
+    scrollTop: $('#updates').height()
+  }, "fast");
+  // hideInit();
+
+  $(document).ready(function() {
+    $('#updates').animate({
+      scrollTop: $('#updates')[0].scrollHeight
+    }, 2000);
+  });
+</script>
+
+</html>
